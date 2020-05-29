@@ -13,14 +13,14 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount(){
     axios.get('http://localhost:4000/api/inventory')
     .then(res => {
       this.setState({
         products: res.data
       })
+      console.log(res.data)
     })
-    .catch(err => console.log(err))
   }
 
   render(){

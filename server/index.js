@@ -6,6 +6,7 @@ const {SERVER_PORT, CONNECTION_STRING} = process.env
 const port = SERVER_PORT
 const ctrl = require('./controller')
 const app = express()
+app.use(cors());
 
 
 massive({
@@ -17,7 +18,6 @@ massive({
 })
 
 app.use(express.json())
-app.use(cors())
 
 app.get('/api/inventory', ctrl.getInventory)
 app.post('/api/product', ctrl.addProduct)
