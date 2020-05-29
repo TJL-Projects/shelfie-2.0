@@ -3,7 +3,7 @@ const express =  require('express')
 const massive = require('massive')
 const {SERVER_PORT, CONNECTION_STRING} = process.env
 const port = SERVER_PORT
-const ctrl = './controller.js'
+const ctrl = require('./controller')
 const app = express()
 
 
@@ -16,6 +16,10 @@ massive({
 })
 
 app.use(express.json())
+
+app.get('/api/inventory', ctrl.getInventory)
+app.post('/api/product', ctrl.addProduct)
+app.delete('/api/inventory/:id', ctrl.deleteProduct)
 
 
 app.listen(port, console.log(`Server is running on port: ${port}`))

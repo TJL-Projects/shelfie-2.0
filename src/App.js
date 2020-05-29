@@ -8,9 +8,18 @@ class App extends Component {
   constructor(){
     super()
     this.state ={
-
+      inventory: []
     }
   }
+
+  // componentDidMount(){
+  //   axios.get('http://localhost:3000/api/inventory')
+  //   .then(res => {
+  //     this.setState({
+  //       inventory: res.data
+  //     })
+  //   })
+  // }
 
   render(){
 
