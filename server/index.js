@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express =  require('express')
 const massive = require('massive')
+const cors = require('cors')
 const {SERVER_PORT, CONNECTION_STRING} = process.env
 const port = SERVER_PORT
 const ctrl = require('./controller')
@@ -16,6 +17,7 @@ massive({
 })
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/api/inventory', ctrl.getInventory)
 app.post('/api/product', ctrl.addProduct)

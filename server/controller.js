@@ -3,7 +3,9 @@ module.exports = {
         const db = req.app.get('db')
 
         db.get_inventory()
-        .then(products => res.status(200).send(products))
+        .then(products => {
+            console.log(products)
+            res.status(200).send(products)})
         .catch( err => {
             res.status(500).send({errorMessage: 'No Worky'})
             console.log(err)
