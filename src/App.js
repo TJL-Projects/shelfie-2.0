@@ -26,8 +26,10 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-
-      <Dashboard />
+        
+      <Dashboard
+        products={this.state.products}
+      />
       <Form />
       <Header />
 

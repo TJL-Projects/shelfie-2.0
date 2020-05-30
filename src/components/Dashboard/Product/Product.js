@@ -12,6 +12,7 @@ class Product extends Component{
         return (
             <div>
                 <h1>Product.js</h1>
+                <img src={this.props.product.img} />
             </div>
         )
     }
