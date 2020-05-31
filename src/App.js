@@ -9,7 +9,11 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state ={
-      products:[]
+      products:[{
+        name: 'Travis',
+        price: 999,
+        img: ''
+      }]
     }
   }
 
@@ -17,19 +21,23 @@ class App extends Component {
     axios.get('http://localhost:4000/api/inventory')
     .then(res => {
       this.setState({
-        products: res.data
+        products: res.data,
+
       })
       console.log(res.data)
     })
   }
 
   render(){
+
+    console.log(this.state)
     return (
       <div className="App">
-        
-      <Dashboard
-        products={this.state.products}
-      />
+
+
+      <Dashboard products={this.state.products} />
+
+
       <Form />
       <Header />
 
