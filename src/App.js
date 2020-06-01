@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dashboard from './components/Dashboard/Dashboard'
 import Form from './components/Form/Form'
 import Header from './components/Header/Header'
+import './reset.css'
 import './App.css';
 import axios from 'axios'
 
@@ -10,11 +11,10 @@ class App extends Component {
     super(props)
     this.state ={
       products:[{
-        name: 'Travis',
-        price: 999,
-        img: ''
       }]
     }
+
+    // this.addProduct = this.addProduct.bind('this')
   }
 
   componentDidMount(){
@@ -28,19 +28,36 @@ class App extends Component {
     })
   }
 
+  addProduct = (name, price, img) => {
+    axios.post('http://localhost:4000/api/product', {name, price, img})
+    .then(res => {
+      this.setState({
+        products: res.data
+      })
+    })
+  }
+
+  deleteProduct = (id) => {
+    axios.delete(`http://localhost:4000/api/inventory/${id}`)
+    .then(res => {
+      this.setState({
+        products: res.data
+      })
+    })
+  }
+
+
   render(){
 
     console.log(this.state)
     return (
       <div className="App">
-
-
-      <Dashboard products={this.state.products} />
-
-
-      <Form />
       <Header />
-
+      <Dashboard 
+          products={this.state.products} 
+          deleteProduct={this.deleteProduct}
+      />
+      <Form addProduct={this.addProduct} />
     </div>
   );
 }

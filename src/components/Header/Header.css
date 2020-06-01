@@ -1,0 +1,18 @@
+.nav-bar{
+    position: fixed;
+    height: 10vh;
+    width: 100%;
+    top:0px;
+    background-color: rgb(190, 7, 7);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.header-tag{
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+    float: left;
+    margin-left: 10%;
+}
