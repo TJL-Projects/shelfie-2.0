@@ -32,8 +32,11 @@ class App extends Component {
     axios.post('http://localhost:4000/api/product', {name, price, img})
     .then(res => {
       this.setState({
-        products: res.data
+        products:[
+          ...this.state.products, res.data[0]
+        ]
       })
+    console.log(res.data)  
     })
   }
 

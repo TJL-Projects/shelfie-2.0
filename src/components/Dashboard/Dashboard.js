@@ -9,19 +9,19 @@ class Dashboard extends Component{
         }
     }
 
+
+    
+
     render(){
         console.log(this.props)
         return(
-            <div>
-                
+            <div>               
                 {this.props.products.map(element => {
                     return <Product 
                                 key={element.id}
                                 product={element}
-                                deleteProduct={this.props.deleteProduct}
-                    
-                    /> 
-                    
+                                deleteProduct={this.props.deleteProduct}                    
+                    />                    
                 })}
                 
                 {/* <Product /> */}
